@@ -140,4 +140,8 @@ Hint: Use standard library's `std::ifstream` and `std::ofstream`
 [ ] Test empty lists, invalid IDs, and descriptions with spaces.
 [ ] Add file saving and loading.
 [ ] Verify that task state survives closing and reopening the program.
+<<<<<<< HEAD
 [ ] Remove duplicated logic and make the code readable.
+=======
+[ ] Remove duplicated logic and make the code readable.
+>>>>>>> 5e63883 (Started Project 1)

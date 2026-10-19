@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+<<<<<<< HEAD
 #include <filesystem>
 #include "task.h"
 #include "task_manager.h"
@@ -50,5 +51,19 @@ int main()
     // Save Tasks
     std::cout << FILE_PATH << "\n";
 
+=======
+#include "task.h"
+
+int main()
+{
+    Task task {};
+    task.id = 1;
+    task.name = "Do Stuff";
+    task.description = "Remember to do stuff";
+    task.completed = false;
+    std::cout << "Hello World!\n";
+
+    std::cout << task.id << " " << task.name << " " << task.description << " " << task.completed << "\n";
+>>>>>>> 5e63883 (Started Project 1)
     return 0;
 }
