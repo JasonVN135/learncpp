@@ -12,6 +12,8 @@ typedef struct
 
 
 // Task Functions
+
+
 bool addTask(TaskManager& taskManager);
 
 bool completeTask(TaskManager& taskManager, int taskId);
