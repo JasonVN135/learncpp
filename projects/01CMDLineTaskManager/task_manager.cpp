@@ -10,7 +10,7 @@ void addTask(TaskManager& taskManager, std::string name, std::string description
 
 void viewTasks(TaskManager& taskManager)
 {
-    for (Task task : taskManager.tasks)
+    for (Task& task : taskManager.tasks)
     {
         displayTask(task);
     }
@@ -18,7 +18,16 @@ void viewTasks(TaskManager& taskManager)
 
 bool completeTask(TaskManager& taskManager, int taskId)
 {
-    return true;
+
+    for (Task& task : taskManager.tasks)
+    {
+        if (task.id == taskId)
+        {
+            task.completed = true;
+            return true;
+        }
+    }
+    return false;
 }
 
 bool deleteTask(TaskManager& taskManager, int taskId)
