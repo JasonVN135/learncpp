@@ -27,7 +27,7 @@ int getInputOption()
         int choice {0};
         choice = std::stoi(userInput);
 
-        if (choice <= 0 || choice >= 5) {
+        if (choice <= 0 || choice >= 6) {
             return -1;
         }
         return choice;

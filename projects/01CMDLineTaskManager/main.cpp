@@ -27,7 +27,7 @@ int main()
     int choice {0};
     
     // While the user doesn't quit
-    while (choice != 4)
+    while (choice != 5)
     {
         displayOptions();
 
@@ -53,6 +53,7 @@ int main()
                     completeTaskMenu(manager);
                     break;
                 case 4: // Delete Task
+                    deleteTaskMenu(manager);
                     break;
                 case 5: // Quit Program
                     break;
