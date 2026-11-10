@@ -2,9 +2,9 @@
 #include "task_manager.h"
 
 
-bool addTask(TaskManager& taskManager, std::string name, std::string description)
+void addTask(TaskManager& taskManager, std::string name, std::string description)
 {
-    return true;
+
 }
 
 void viewTasks(TaskManager& taskManager)

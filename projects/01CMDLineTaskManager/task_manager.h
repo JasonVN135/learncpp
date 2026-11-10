@@ -13,7 +13,14 @@ typedef struct
 
 // Task Functions
 
-bool addTask(TaskManager& taskManager, std::string name, std::string description);
+/**
+ * Create and add a task to the task manager.
+ * 
+ * @param taskManager The task manager to add a task in.
+ * @param name The name of the task
+ * @param description The description of the task
+ */
+void addTask(TaskManager& taskManager, std::string name, std::string description);
 
 void viewTasks(TaskManager& taskManager);
 
