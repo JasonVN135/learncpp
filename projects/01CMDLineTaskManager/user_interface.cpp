@@ -75,10 +75,44 @@ void viewTasksMenu(TaskManager& manager)
 
 void completeTaskMenu(TaskManager& manager)
 {
-    
+    std::string userInput {};
+    std::cout << "Task ID to Complete: ";
+    std::getline(std::cin >> std::ws, userInput);
+
+    try {
+        int taskId {std::stoi(userInput)};
+        bool success {completeTask(manager, taskId)};
+
+        if (success) {
+            std::cout << "Task Completed\n";
+        }
+        else {
+            std::cout << "Unable to find Task " << taskId << "\n";
+        }
+    }
+    catch (...) {
+        std::cout << "Task ID must be an Integer.\n";
+    }
 }
 
 void deleteTaskMenu(TaskManager& manager)
 {
-    
+    std::string userInput {};
+    std::cout << "Task ID to Delete: ";
+    std::getline(std::cin >> std::ws, userInput);
+
+    try {
+        int taskId {std::stoi(userInput)};
+        bool success {deleteTask(manager, taskId)};
+
+        if (success) {
+            std::cout << "Task Deleted\n";
+        }
+        else {
+            std::cout << "Unable to find Task " << taskId << "\n";
+        }
+    }
+    catch (...) {
+        std::cout << "Task ID must be an Integer.\n";
+    }
 }

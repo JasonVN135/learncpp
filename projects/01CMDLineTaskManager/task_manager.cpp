@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include "task_manager.h"
 
 
@@ -6,6 +6,7 @@ void addTask(TaskManager& taskManager, std::string name, std::string description
 {
     Task task {taskManager.index, name, description, false};
     taskManager.tasks.push_back(task);
+    taskManager.index++;
 }
 
 void viewTasks(TaskManager& taskManager)
@@ -32,7 +33,15 @@ bool completeTask(TaskManager& taskManager, int taskId)
 
 bool deleteTask(TaskManager& taskManager, int taskId)
 {
-    return true;
+    for (std::size_t i {0}; i < taskManager.tasks.size(); i++)
+    {
+        Task& task {taskManager.tasks.at(i)};
+        if (task.id == taskId) {
+            taskManager.tasks.erase(taskManager.tasks.begin() + i);
+            return true;
+        }
+    }
+    return false;
 }
 
 void displayTask(Task& task)
