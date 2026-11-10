@@ -13,62 +13,27 @@ typedef struct
 
 // Task Functions
 
-
 bool addTask(TaskManager& taskManager);
+
+void viewTasks(TaskManager& taskManager);
 
 bool completeTask(TaskManager& taskManager, int taskId);
 
 bool deleteTask(TaskManager& taskManager, int taskId);
 
-
-// Display Functions
-
-/**
- * @brief Displays the program's name on start up
- */
-void displayManager();
-
-
-/**
- * @brief Displays the options the user can perform in the program
- */
-void displayOptions();
-
-// Handle Inputs
-
-/**
- * @brief Perform the necessary action given the user's input.
+/** 
+ * Output the task for the menu.
  * 
- * @param option The option the user enters
- * @return Return if the program should continue running or close
- */
-bool handleAction(int option);
-
+ * @param task The task to display
+*/
+void displayTask(Task& task);
 
 /**
- * @brief Returns if the input the user entered is a valid input
+ * Return the task in a format to be stored in a text document.
  * 
- * @return the command as an `int` if valid, 0 if invalid
+ * @param task The task to write
  */
-int getValidInput(std::string input);
-
-
-/**
- * 
- */
-void handleAddTask();
-
-
-/**
- * 
- */
-void handleCompleteTask();
-
-
-/**
- * 
- */
-void handleDeleteTask();
+std::string writeTask(Task& task);
 
 
 #endif

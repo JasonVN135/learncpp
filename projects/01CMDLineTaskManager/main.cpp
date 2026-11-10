@@ -4,6 +4,8 @@
 #include "task.h"
 #include "task_manager.h"
 #include "file_manager.h"
+#include "user_interface.h"
+
 
 int main()
 {
@@ -20,35 +22,46 @@ int main()
     TaskManager manager {readTaskFile()};
 
     // Display Program
-    displayManager();
+    displayTitle();
 
-    bool running {true};
+    int choice {0};
     
     // While the user doesn't quit
-    while (running)
+    while (choice != 4)
     {
         displayOptions();
 
-        // Retrieve user option
-        std::string input;
-        std::getline(std::cin, input);
+        // The choice the user selects (-1 if invalid)
+        choice = getInputOption();
 
-        int inputResult {getValidInput(input)};
-
-        if (!inputResult)
+        if (choice == -1)
         {
             std::cout << "Invalid input, enter a valid option.\n\n";
             continue;
         }
-        
-        // Handle user option
-        running = handleAction(inputResult);
 
+
+            switch (choice)
+            {
+                case 1: // Add Task
+                    break;
+                case 2: // View Tasks
+                    viewTasksMenu(manager);
+                    break;
+                case 3: // Complete Task
+                    break;
+                case 4: // Delete Task
+                    break;
+                case 5: // Quit Program
+                    break;
+                default: // Invalid Command
+                    break;
+            }
+        
     } // User has quit, ending program
 
     Task task;
     // Save Tasks
-    std::cout << FILE_PATH << "\n";
 
     return 0;
 }

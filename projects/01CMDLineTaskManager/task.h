@@ -11,5 +11,4 @@ typedef struct
     bool completed;
 } Task;
 
-
 #endif

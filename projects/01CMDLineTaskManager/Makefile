@@ -2,8 +2,8 @@ CXX = g++
 CXXFLAGS = -std=c++20 -Wextra -Wshadow
 # -std=c++20 -Wall -Werror -Wextra -Wshadow
 
-output: main.o task_manager.o file_manager.o
-	$(CXX) $(CXXFLAGS) main.o task_manager.o file_manager.o -o main
+output: main.o task_manager.o file_manager.o user_interface.o
+	$(CXX) $(CXXFLAGS) main.o task_manager.o file_manager.o user_interface.o -o main
 
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) -c main.cpp
@@ -13,6 +13,9 @@ task_manager.o: task_manager.cpp task_manager.h
 
 file_manager.o: file_manager.cpp file_manager.h
 	$(CXX) $(CXXFLAGS) -c file_manager.cpp
+
+user_interface.o: user_interface.cpp user_interface.h
+	$(CXX) $(CXXFLAGS) -c user_interface.cpp
 
 clean:
 	rm *.o main
