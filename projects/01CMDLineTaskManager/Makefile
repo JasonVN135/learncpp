@@ -1,5 +1,4 @@
 CXX = g++
-<<<<<<< HEAD
 CXXFLAGS = -std=c++20 -Wextra -Wshadow
 # -std=c++20 -Wall -Werror -Wextra -Wshadow
 
@@ -17,11 +16,3 @@ file_manager.o: file_manager.cpp file_manager.h
 
 clean:
 	rm *.o main
-=======
-CXXFLAGS = -std=c++20 -Wall -Werror -Wextra -Wshadow
-
-all: main
-
-main: main.cpp
-	$(CXX) $(CXXFLAGS) main.cpp -o main
->>>>>>> 5e63883 (Started Project 1)

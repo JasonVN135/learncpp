@@ -3,8 +3,7 @@
 #include <filesystem>
 #include "task.h"
 #include "task_manager.h"
-
-const std::string FILE_PATH {"tasks.txt"};
+#include "file_manager.h"
 
 int main()
 {
@@ -13,11 +12,12 @@ int main()
     if (!std::filesystem::exists(FILE_PATH))
     {
         std::ofstream tmp(FILE_PATH);
+        tmp << 0;
         tmp.close();
     }
 
     // Load the task file
-    std::ifstream inf{FILE_PATH};
+    TaskManager manager {readTaskFile()};
 
     // Display Program
     displayManager();
