@@ -66,8 +66,8 @@ int main()
         
     } // User has quit, ending program
 
-    Task task;
-    // Save Tasks
+    // Save File
+    writeTaskToFile(manager);
 
     return 0;
 }

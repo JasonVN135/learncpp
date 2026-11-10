@@ -4,7 +4,8 @@
 
 void addTask(TaskManager& taskManager, std::string name, std::string description)
 {
-    Task task {taskManager.index, name, description, false};
+    int idx = taskManager.index;
+    Task task {idx, name, description, false};
     taskManager.tasks.push_back(task);
     taskManager.index++;
 }
@@ -59,10 +60,8 @@ void displayTask(Task& task)
 
 std::string getTaskAsText(Task& task)
 {
-    std::string idStr {"" + task.id};
     std::string completed = (task.completed) ? "1" : "0";
 
-    std::string taskStr {"" + idStr + "," + task.name + "," + task.description + "," + completed};
-
+    std::string taskStr {std::to_string(task.id) + "," + task.name + "," + task.description + "," + completed};
     return taskStr;
 }
