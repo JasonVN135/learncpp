@@ -64,6 +64,8 @@ void addTaskMenu(TaskManager& manager)
     }
 
     addTask(manager, name, description);
+
+    std::cout << "Task \'" << name << "\' has successfully been added.\n";
 }
 
 void viewTasksMenu(TaskManager& manager)

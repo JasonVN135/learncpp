@@ -58,6 +58,8 @@ int main()
                 default: // Invalid Command
                     break;
             }
+
+        std::cout << std::endl;
         
     } // User has quit, ending program
 

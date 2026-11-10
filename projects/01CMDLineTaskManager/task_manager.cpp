@@ -4,7 +4,8 @@
 
 void addTask(TaskManager& taskManager, std::string name, std::string description)
 {
-
+    Task task {taskManager.index, name, description, false};
+    taskManager.tasks.push_back(task);
 }
 
 void viewTasks(TaskManager& taskManager)
