@@ -42,6 +42,28 @@ int getInputOption()
 void addTaskMenu(TaskManager& manager)
 {
 
+    std::string name {};
+
+    std::cout << "Name: ";
+    std::getline(std::cin >> std::ws, name);
+
+    while (name.size() <= 0)
+    {
+        std::cout << "Enter a valid name for your task: ";
+        std::getline(std::cin >> std::ws, name);
+    }
+
+    std::string description {};
+    std::cout << "Description: ";
+    std::getline(std::cin >> std::ws, description);
+
+    while (description.size() <= 0)
+    {
+        std::cout << "Enter a valid description for your task: ";
+        std::getline(std::cin >> std::ws, description);
+    }
+
+    addTask(manager, name, description);
 }
 
 void viewTasksMenu(TaskManager& manager)

@@ -2,7 +2,7 @@
 #include "task_manager.h"
 
 
-bool addTask(TaskManager& taskManager)
+bool addTask(TaskManager& taskManager, std::string name, std::string description)
 {
     return true;
 }

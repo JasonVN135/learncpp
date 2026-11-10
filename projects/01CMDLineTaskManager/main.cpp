@@ -44,6 +44,7 @@ int main()
             switch (choice)
             {
                 case 1: // Add Task
+                    addTaskMenu(manager);
                     break;
                 case 2: // View Tasks
                     viewTasksMenu(manager);

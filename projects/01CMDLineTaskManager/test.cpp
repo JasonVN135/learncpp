@@ -6,18 +6,13 @@
 int main()
 {
 
-    std::string str {};
+    std::cout << "Enter some text\n";
 
-    std::cout << "Number: ";
+    std::string stuff {};
 
-    std::cin >> str;
+    std::getline(std::cin, stuff);
 
-    std::cout << "Your string: " << str << "\n";
+    std::cout << "Here is the output: " << stuff << "\n";
 
-    int val {-1};
-
-    val = std::stoi(str);
-
-    std::cout << "Your number: " << val << "\n";
     return 0;
 }

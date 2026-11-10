@@ -13,7 +13,7 @@ typedef struct
 
 // Task Functions
 
-bool addTask(TaskManager& taskManager);
+bool addTask(TaskManager& taskManager, std::string name, std::string description);
 
 void viewTasks(TaskManager& taskManager);
 
