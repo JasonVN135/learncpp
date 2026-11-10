@@ -15,14 +15,15 @@ void readTaskFile(TaskManager& manager)
 
     // Read the first line which should contain the index of tasks
     int taskIdx {0};
-    inf >> strInput;
-    if (strInput.empty())
+    std::getline(inf, strInput);
+    if (!strInput.empty())
     {
         taskIdx = std::stoi(strInput);
     }
     manager.index = taskIdx;
     
-    while (inf >> strInput)
+    // Read each task
+    while (std::getline(inf, strInput))
     {
         // Read and parse each line to create the tasks
         Task task{};
@@ -44,7 +45,7 @@ void readTaskFile(TaskManager& manager)
                     task.description = parsed;
                     break;
                 case 3:
-                    task.completed = true;
+                    task.completed = std::stoi(parsed);
                     break;
             }
             index++;
