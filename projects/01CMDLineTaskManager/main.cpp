@@ -50,6 +50,7 @@ int main()
                     viewTasksMenu(manager);
                     break;
                 case 3: // Complete Task
+                    completeTaskMenu(manager);
                     break;
                 case 4: // Delete Task
                     break;

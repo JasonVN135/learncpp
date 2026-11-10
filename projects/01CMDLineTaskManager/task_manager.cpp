@@ -38,3 +38,13 @@ void displayTask(Task& task)
 
     std::cout << task.id << " " << task.name << " " << completedSign << "\n";
 }
+
+std::string getTaskAsText(Task& task)
+{
+    std::string idStr {"" + task.id};
+    std::string completed = (task.completed) ? "1" : "0";
+
+    std::string taskStr {"" + idStr + "," + task.name + "," + task.description + "," + completed};
+
+    return taskStr;
+}

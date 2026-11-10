@@ -40,7 +40,7 @@ void displayTask(Task& task);
  * 
  * @param task The task to write
  */
-std::string writeTask(Task& task);
+std::string getTaskAsText(Task& task);
 
 
 #endif
