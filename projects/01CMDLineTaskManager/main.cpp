@@ -19,7 +19,8 @@ int main()
     }
 
     // Load the task file
-    TaskManager manager {readTaskFile()};
+    TaskManager manager {};
+    readTaskFile(manager);
 
     // Display Program
     displayTitle();

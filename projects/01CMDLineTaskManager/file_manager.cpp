@@ -1,16 +1,14 @@
 #include "file_manager.h"
 
-TaskManager readTaskFile()
+void readTaskFile(TaskManager& manager)
 {
     std::ifstream inf{FILE_PATH};
-
-    TaskManager taskManager;
     
     // If file doesn't exist, exit
     if (!inf)
     {
         std::cerr << "Unable to read file: " << FILE_PATH << "\n";
-        return taskManager;
+        return;
     }
 
     std::string strInput{};
@@ -22,6 +20,7 @@ TaskManager readTaskFile()
     {
         taskIdx = std::stoi(strInput);
     }
+    manager.index = taskIdx;
 
     while (inf >> strInput)
     {
@@ -50,9 +49,12 @@ TaskManager readTaskFile()
             }
             index++;
         }
-        taskManager.tasks.push_back(task);
+        manager.tasks.push_back(task);
         
-    }
-    return taskManager;
+    }\
+}
 
+void writeTaskToFile(TaskManager& manager)
+{
+    
 }

@@ -10,6 +10,20 @@
 
 const std::string FILE_PATH {"tasks.txt"};
 
-TaskManager readTaskFile();
+/**
+ * Read from the task file and retrieve all tasks. Place all tasks in the TaskManager
+ * 
+ * @param manager The TaskManager to write tasks into
+ * 
+ */
+void readTaskFile(TaskManager& manager);
+
+
+/**
+ * With the task manager, write to the task file to record and save information.
+ * 
+ * @param manager The TaskManager to retrieve tasks from.
+ */
+void writeTaskToFile(TaskManager& manager);
 
 #endif
