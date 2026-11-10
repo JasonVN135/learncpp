@@ -56,5 +56,6 @@
         "variant": "cpp"
     },
     "vscode.experimental.intelliCode.completions": false,
-    "editor.inlineSuggest.enabled": false
+    "editor.inlineSuggest.enabled": false,
+
 }
