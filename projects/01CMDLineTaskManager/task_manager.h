@@ -1,8 +1,10 @@
 #ifndef TASK_MANAGER_H
 #define TASK_MANAGER_H
 
+#include <format>
 #include <vector>
 #include <iostream>
+#include <string>
 #include "task.h"
 
 typedef struct

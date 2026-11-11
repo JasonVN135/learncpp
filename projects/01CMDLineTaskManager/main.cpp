@@ -65,6 +65,7 @@ int main()
         std::cout << std::endl;
         
     } // User has quit, ending program
+    std::cout << "Closing Task Manager\n";
 
     // Save File
     writeTaskToFile(manager);

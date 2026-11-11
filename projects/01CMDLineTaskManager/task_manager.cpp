@@ -12,6 +12,8 @@ void addTask(TaskManager& taskManager, std::string name, std::string description
 
 void viewTasks(TaskManager& taskManager)
 {
+    std::string header {std::format("{:<3} {:<6} {:<20} {}\n", "ID", "Status", "Task", "Description")};
+    std::cout << header;
     for (Task& task : taskManager.tasks)
     {
         displayTask(task);
@@ -54,8 +56,9 @@ void displayTask(Task& task)
     {
         completedSign = "[x]";
     }
+    std::string output {std::format("{:<3} {:<6} {:<20} {}", task.id, completedSign, task.name, task.description)};
 
-    std::cout << task.id << " " << task.name << " " << completedSign << "\n";
+    std::cout << output << "\n";
 }
 
 std::string getTaskAsText(Task& task)

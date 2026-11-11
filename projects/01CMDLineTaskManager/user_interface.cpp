@@ -21,7 +21,11 @@ int getInputOption()
 {
     std::string userInput {};
 
+    std::cout << "Enter Option: ";
+
     std::cin >> userInput;
+
+    std::cout << "\n";
 
     try {
         int choice {0};
@@ -91,7 +95,7 @@ void completeTaskMenu(TaskManager& manager)
         }
     }
     catch (...) {
-        std::cout << "Task ID must be an Integer.\n";
+        std::cout << "Task ID must be an Integer\n";
     }
 }
 
@@ -113,6 +117,6 @@ void deleteTaskMenu(TaskManager& manager)
         }
     }
     catch (...) {
-        std::cout << "Task ID must be an Integer.\n";
+        std::cout << "Task ID must be an Intege.\n";
     }
 }
