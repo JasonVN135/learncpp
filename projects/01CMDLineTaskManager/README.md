@@ -64,73 +64,8 @@ ID   STATUS       DESCRIPTION
 3    [ ]          Build task manager
 ```
 
-## 3. Test Cases
 
-### TC Template
-
-**Status:** The status
-
-**Description:** The description
-
-**Preconditions:**
-- A condition that must be met
-
-**Steps:**:
-1. Step to perform
-
-**Expected Results:**
-- What to expect
-
-**Actual Results:**
--  What you got
-
-### TC-01: Open the program
-
-**Status:** Complete
-
-**Description:** The user must be able to open the program
-
-**Preconditions:**
-- User is in current project directory.
-
-**Steps:**:
-1. Run the command `make`
-2. Run the command `./main`
-3. Observer Results
-4. Press `Ctrl + C` to force close the program
-
-**Expected Results:**
-- The terminal prints out the following:
-
-```
-====================
-    Task Manager    
-====================
-
-1. Add Task
-2. View Tasks
-3. Complete Task
-4. Delete Task
-5. Quit
-```
-
-**Actual Results:**
-- The terminal prints out the following:
-
-```
-====================
-    Task Manager    
-====================
-
-1. Add Task
-2. View Tasks
-3. Complete Task
-4. Delete Task
-5. Quit
-```
-
-##### More stuff
-## 4. Completion Checklist
+## 3. Completion Checklist
 
 
 [x] Create and compile a C++ project using a repeatable build command.
