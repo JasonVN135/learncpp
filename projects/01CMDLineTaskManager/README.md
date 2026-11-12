@@ -74,8 +74,9 @@ ID   STATUS       DESCRIPTION
 [x] Use functions to separate responsibilities.
 [x] Handle invalid input without crashing or getting stuck.
 [x] Ensure IDs remain unique after deletions.
-[ ] Test empty lists, invalid IDs, and descriptions with spaces.
+[x] Test empty lists, invalid IDs, and descriptions with spaces.
 [x] Add file saving and loading.
-[ ] Verify that task state survives closing and reopening the program.
+[x] Verify that task state survives closing and reopening the program.
 [x] Remove duplicated logic and make the code readable.
 
+## 4. Things to incorporate for the next project
