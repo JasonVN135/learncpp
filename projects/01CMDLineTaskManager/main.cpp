@@ -20,7 +20,9 @@ int main()
 
     // Load the task file
     TaskManager manager {};
-    readTaskFile(manager);
+    if (!readTaskFile(manager)) {
+        return 1;
+    }
 
     // Display Program
     displayTitle();
@@ -41,28 +43,27 @@ int main()
             continue;
         }
 
-
-            switch (choice)
-            {
-                case 1: // Add Task
-                    addTaskMenu(manager);
-                    break;
-                case 2: // View Tasks
-                    viewTasksMenu(manager);
-                    break;
-                case 3: // Complete Task
-                    completeTaskMenu(manager);
-                    break;
-                case 4: // Delete Task
-                    deleteTaskMenu(manager);
-                    break;
-                case 5: // Quit Program
-                    break;
-                default: // Invalid Command
-                    break;
-            }
-
+        switch (choice)
+        {
+            case 1: // Add Task
+                addTaskMenu(manager);
+                break;
+            case 2: // View Tasks
+                viewTasksMenu(manager);
+                break;
+            case 3: // Complete Task
+                completeTaskMenu(manager);
+                break;
+            case 4: // Delete Task
+                deleteTaskMenu(manager);
+                break;
+            case 5: // Quit Program
+                break;
+            default: // Invalid Command
+                break;
+        }
         std::cout << std::endl;
+        
         
     } // User has quit, ending program
     std::cout << "Closing Task Manager\n";

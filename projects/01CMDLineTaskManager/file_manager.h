@@ -11,12 +11,14 @@
 const std::string FILE_PATH {"tasks.txt"};
 
 /**
- * Read from the task file and retrieve all tasks. Place all tasks in the TaskManager
+ * Read from the task file and retrieve all tasks. Place all tasks in the TaskManager. Return if the action was successful.
  * 
  * @param manager The TaskManager to write tasks into
  * 
+ * @return If the read was successful.
+ * 
  */
-void readTaskFile(TaskManager& manager);
+bool readTaskFile(TaskManager& manager);
 
 
 /**

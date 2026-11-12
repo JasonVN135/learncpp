@@ -23,7 +23,7 @@ int getInputOption()
 
     std::cout << "Enter Option: ";
 
-    std::cin >> userInput;
+    std::getline(std::cin >> std::ws, userInput);
 
     std::cout << "\n";
 
@@ -47,29 +47,51 @@ void addTaskMenu(TaskManager& manager)
 {
 
     std::string name {};
-
     std::cout << "Name: ";
-    std::getline(std::cin >> std::ws, name);
+    std::getline(std::cin, name);
 
-    while (name.size() <= 0)
+    // Retrieve a valid name
+    while (true)
     {
-        std::cout << "Enter a valid name for your task: ";
-        std::getline(std::cin >> std::ws, name);
+        if (name.find_first_not_of(' ') == std::string::npos)
+        {
+            std::cout << "Enter a valid name for your task: ";
+        }
+        else if (name.find(',') != std::string::npos)
+        {
+            std::cout << "Name cannot contain a comma: ";
+        }
+        else
+        {
+            break; // Exit out of loop
+        }
+        std::getline(std::cin, name);
     }
 
     std::string description {};
     std::cout << "Description: ";
-    std::getline(std::cin >> std::ws, description);
+    std::getline(std::cin, description);
 
-    while (description.size() <= 0)
+    // Retrieve a valid description
+    while (true)
     {
-        std::cout << "Enter a valid description for your task: ";
-        std::getline(std::cin >> std::ws, description);
+        if (description.find_first_not_of(' ') == std::string::npos)
+        {
+            std::cout << "Enter a valid description for your task: ";
+        }
+        else if (description.find(',') != std::string::npos)
+        {
+            std::cout << "Description cannot contain a comma: ";
+        }
+        else
+        {
+            break; // Exit out of loop
+        }
+        std::getline(std::cin, description);
     }
 
     addTask(manager, name, description);
-
-    std::cout << "Task \'" << name << "\' has successfully been added.\n";
+    std::cout << "Task \'" << name << "\' has successfully been added\n";
 }
 
 void viewTasksMenu(TaskManager& manager)
@@ -117,6 +139,6 @@ void deleteTaskMenu(TaskManager& manager)
         }
     }
     catch (...) {
-        std::cout << "Task ID must be an Intege.\n";
+        std::cout << "Task ID must be an Integer\n";
     }
 }
