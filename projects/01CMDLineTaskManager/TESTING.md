@@ -28,6 +28,15 @@ The following setup must be completed before executing any test case that refere
 8. Type `Vacuum` then press `Enter`
 9. Type `Vacuum the carpets` then press `Enter`
 
+`tasks.txt` should contain the following if closed:
+
+```
+3
+0,Laundry,Fold today's laundry,0
+1,Dishes,Rinse and dry dishes,0
+2,Vacuum,Vacuum the carpets,0
+```
+
 ### SP-03: Task list with completed tasks
 
 The following setup must be completed before executing any test case that references SP-03.
@@ -166,7 +175,7 @@ Enter Option:
 
 ### TC-03: Open the program with a `tasks.txt` file that holds a single number
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user must be able to open the program with a tasks.txt file with a single number.
 
@@ -220,7 +229,7 @@ Enter Option:
 
 ### TC-04: Incorrectly formatted tasks.txt file.
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The program should gracefully fail if the `tasks.txt` file is improperly edited and not formatted correctly.
 
@@ -242,21 +251,19 @@ Enter Option:
 - The terminal prints out the following:
 
 ```
-Unable to open `tasks.txt`
+Unable to read `tasks.txt`
 ```
 
 **Actual Results:**
 - The terminal prints out the following:
 
 ```
-terminate called after throwing an instance of 'std::invalid_argument'
-  what():  stoi
-Aborted
+Unable to read `tasks.txt`
 ```
 
 ### TC-05: Add a task
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can add a task with a name and description.
 
@@ -277,19 +284,23 @@ Enter Option: 1
 
 Name: Laundry
 Description: Fold today's laundry
-Task 'Laundry' has successfully been added.
+Task 'Laundry' has successfully been added
 ```
 
 **Actual Results:**
 - The terminal prints out the following:
 
 ```
+Enter Option: 1
 
+Name: Laundry
+Description: Fold today's laundry
+Task 'Laundry' has successfully been added
 ```
 
 ### TC-06: Add a task with no Name
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user will not be able to add a task unless the task has a name. The user will be reprompted to enter a name.
 
@@ -316,12 +327,15 @@ Enter a valid name for your task:
 - The terminal prints out the following:
 
 ```
+Enter Option: 1
 
+Name: 
+Enter a valid name for your task: 
 ```
 
 ### TC-07: Add a task with no Description
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user will not be able to add a task unless the task has a description. The user will be reprompted to enter a description.
 
@@ -350,12 +364,16 @@ Enter a valid description for your task:
 - The terminal prints out the following:
 
 ```
+Enter Option: 1
 
+Name: Laundry
+Description: 
+Enter a valid description for your task: 
 ```
 
 ### TC-07: Add a task with a comma in the name
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user will not be able to add a task with a comma in the name. The user will be reprompted to type a new name.
 
@@ -382,12 +400,15 @@ Name cannot contain a comma:
 - The terminal prints out the following:
 
 ```
+Enter Option: 1
 
+Name: Laundry, fold, and hang 
+Name cannot contain a comma: 
 ```
 
 ### TC-08: Add a task with a comma in the description
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user will not be able to add a task with a comma in the description. The user will be reprompted to type a new description.
 
@@ -416,12 +437,16 @@ Description cannot contain a comma:
 - The terminal prints out the following:
 
 ```
+Enter Option: 1
 
+Name: Laundry
+Description: Do laundry, then fold, and finally hang
+Description cannot contain a comma: 
 ```
 
 ### TC-09: View tasks
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can view all tasks.
 
@@ -448,14 +473,19 @@ ID  Status Name                 Description
 - The terminal prints out the following:
 
 ```
+Enter Option: 2
 
+ID  Status Task                 Description
+0   [ ]    Laundry              Fold today's laundry
+1   [ ]    Dishes               Rinse and dry dishes
+2   [ ]    Vacuum               Vacuum the carpets
 ```
 
 ### TC-10: Complete incomplete task
 
-**Status:** Incomplete
+**Status:** Complete
 
-**Description:** The user can complete a task.
+**Description:** The user can complete a task that has not already been completed.
 
 **Preconditions:**
 - SP-02 completed
@@ -493,12 +523,28 @@ ID  Status Name                 Description
 - The terminal prints out the following:
 
 ```
+Enter Option: 3
 
+Task ID to Complete: 0
+Task Completed
+
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Delete Task
+5. Quit
+
+Enter Option: 2
+
+ID  Status Task                 Description
+0   [x]    Laundry              Fold today's laundry
+1   [ ]    Dishes               Rinse and dry dishes
+2   [ ]    Vacuum               Vacuum the carpets
 ```
 
 ### TC-11: Complete completed task
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user will be alerted when they attempt to complete an already complete task.
 
@@ -538,14 +584,30 @@ ID  Status Name                 Description
 - The terminal prints out the following:
 
 ```
+Enter Option: 3
 
+Task ID to Complete: 0
+The task has already been completed
+
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Delete Task
+5. Quit
+
+Enter Option: 2
+
+ID  Status Task                 Description
+0   [x]    Laundry              Fold today's laundry
+1   [ ]    Dishes               Rinse and dry dishes
+2   [ ]    Vacuum               Vacuum the carpets
 ```
 
 ### TC-12: ID does not exist for completion
 
-**Status:** Incomplete
+**Status:** Complete
 
-**Description:** The user can not try to complete an ID that does not exist in the manager.
+**Description:** The user will not be able to complete a task with an ID that doesn't exist.
 
 **Preconditions:**
 - SP-02 completed
@@ -569,12 +631,15 @@ Unable to find Task 9
 - The terminal prints out the following:
 
 ```
+Enter Option: 3
 
+Task ID to Complete: 9
+Unable to find Task 9
 ```
 
 ### TC-13: Invalid characters for completion ID
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user cannot enter invalid characters for completion when requested for the Task ID.
 
@@ -600,12 +665,15 @@ Task ID must be an Integer
 - The terminal prints out the following:
 
 ```
+Enter Option: 3
 
+Task ID to Complete: apple
+Task ID must be an Integer
 ```
 
 ### TC-14: Delete task
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can delete a task from the task list.
 
@@ -642,12 +710,27 @@ ID  Status Name                 Description
 - The terminal prints out the following:
 
 ```
+Enter Option: 4
 
+Task ID to Delete: 0
+Task Deleted
+
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Delete Task
+5. Quit
+
+Enter Option: 2
+
+ID  Status Task                 Description
+1   [ ]    Dishes               Rinse and dry dishes
+2   [ ]    Vacuum               Vacuum the carpets
 ```
 
 ### TC-15: ID does not exist for completion
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can not try to delete an ID that does not exist in the manager.
 
@@ -673,12 +756,15 @@ Unable to find Task 9
 - The terminal prints out the following:
 
 ```
+Enter Option: 4
 
+Task ID to Delete: 9
+Unable to find Task 9
 ```
 
 ### TC-16: Invalid characters for deleting ID
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user cannot enter invalid characters for deletion when requested for the Task ID.
 
@@ -694,7 +780,7 @@ Unable to find Task 9
 - The terminal prints out the following:
 
 ```
-Enter Option: 3
+Enter Option: 4
 
 Task ID to Delete: apple
 Task ID must be an Integer
@@ -704,12 +790,15 @@ Task ID must be an Integer
 - The terminal prints out the following:
 
 ```
+Enter Option: 4
 
+Task ID to Delete: apple
+Task ID must be an Integer
 ```
 
 ### TC-17: Successful quit with no tasks
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can quit the program at the home interface without having tasks.
 
@@ -726,6 +815,7 @@ Terminal:
 ```
 Enter Option: 5
 
+
 Closing Task Manager
 ```
 
@@ -736,9 +826,23 @@ Closing Task Manager
 
 **Actual Results:**
 
+Terminal:
+```
+Enter Option: 5
+
+
+Closing Task Manager
+```
+
+`tasks.txt`:
+```
+0
+```
+
+
 ### TC-18: Successful quit with tasks
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can quit the program at the home interface with tasks still present.
 
@@ -755,6 +859,7 @@ Terminal:
 ```
 Enter Option: 5
 
+
 Closing Task Manager
 ```
 
@@ -768,9 +873,25 @@ Closing Task Manager
 
 **Actual Results:**
 
+Terminal:
+```
+Enter Option: 5
+
+
+Closing Task Manager
+```
+
+`tasks.txt`:
+```
+3
+0,Laundry,Fold today's laundry,0
+1,Dishes,Rinse and dry dishes,0
+2,Vacuum,Vacuum the carpets,0
+```
+
 ### TC-19: Successful quit with tasks that are completed.
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can quit the program at the home interface with tasks still present and some completed.
 
@@ -787,6 +908,7 @@ Terminal:
 ```
 Enter Option: 5
 
+
 Closing Task Manager
 ```
 
@@ -800,9 +922,25 @@ Closing Task Manager
 
 **Actual Results:**
 
+Terminal:
+```
+Enter Option: 5
+
+
+Closing Task Manager
+```
+
+`tasks.txt`:
+```
+3
+0,Laundry,Fold today's laundry,1
+1,Dishes,Rinse and dry dishes,0
+2,Vacuum,Vacuum the carpets,0
+```
+
 ### TC-19: Successful quit with tasks that are deleted.
 
-**Status:** Incomplete
+**Status:** Complete
 
 **Description:** The user can quit the program at the home interface with tasks still present and some deleted.
 
@@ -830,3 +968,17 @@ Closing Task Manager
 ```
 
 **Actual Results:**
+
+Terminal:
+```
+Enter Option: 5
+
+Closing Task Manager
+```
+
+`tasks.txt`:
+```
+3
+0,Laundry,Fold today's laundry,1
+2,Vacuum,Vacuum the carpets,0
+```
