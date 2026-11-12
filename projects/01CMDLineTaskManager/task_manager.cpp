@@ -20,18 +20,23 @@ void viewTasks(TaskManager& taskManager)
     }
 }
 
-bool completeTask(TaskManager& taskManager, int taskId)
+int completeTask(TaskManager& taskManager, int taskId)
 {
 
     for (Task& task : taskManager.tasks)
     {
         if (task.id == taskId)
         {
-            task.completed = true;
-            return true;
+            if (task.completed) {
+                return 2;
+            }
+            else {
+                task.completed = true;
+                return 1;
+            }
         }
     }
-    return false;
+    return 0;
 }
 
 bool deleteTask(TaskManager& taskManager, int taskId)

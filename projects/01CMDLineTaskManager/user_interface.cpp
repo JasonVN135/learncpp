@@ -107,13 +107,18 @@ void completeTaskMenu(TaskManager& manager)
 
     try {
         int taskId {std::stoi(userInput)};
-        bool success {completeTask(manager, taskId)};
+        int success {completeTask(manager, taskId)};
 
-        if (success) {
-            std::cout << "Task Completed\n";
-        }
-        else {
-            std::cout << "Unable to find Task " << taskId << "\n";
+        switch (success) {
+            case (1):
+                std::cout << "Task Completed\n";
+                break;
+            case (2):
+                std::cout << "The task has already been completed\n";
+                break;
+            case (0):
+                std::cout << "Unable to find Task " << taskId << "\n";
+                break;
         }
     }
     catch (...) {

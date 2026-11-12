@@ -38,7 +38,7 @@ void viewTasks(TaskManager& taskManager);
  * 
  * @return If the task was successfully completed
  */
-bool completeTask(TaskManager& taskManager, int taskId);
+int completeTask(TaskManager& taskManager, int taskId);
 
 /**
  * Delete a selected task.
